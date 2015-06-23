@@ -12,7 +12,7 @@ Plug 'Konfekt/FastFold'
 Plug 'dahu/vim-help'
 
 " Show a list of last open files when no file is opened at start
-set viminfo='100,n$HOME/.nvim/files/info/viminfo
+set viminfo='100,n$HOME/.nvim/tmp/info/viminfo
 Plug 'mhinz/vim-startify'
 
 " Ask if you wanted to open a different file when you open non-existant files
@@ -531,19 +531,19 @@ set listchars+=precedes:<       " The character to show in the last column when 
 set history=10000
 
 set backup                      " Enable backups ...
-set backupdir=~/.vim/tmp/backup// " set directory for backups
+set backupdir=~/.nvim/tmp/backup// " set directory for backups
 
 " Don't backup files in temp directories
-set backupskip=/tmp/*,/private/tmp/*,~/.vim/tmp/,~/tmp/"
+set backupskip=/tmp/*,/private/tmp/*,~/.nvim/tmp/,~/tmp/"
 
 if has('persistent_undo')
     set undofile                  " Save undo history to file
-    set undodir=~/.vim/tmp/undo// " undo files in folder
+    set undodir=~/.nvim/tmp/undo// " undo files in folder
     set undolevels=100000          " Maximum number of undos
     set undoreload=100000          " Save complete files for undo on reload if it has less lines
 endif
 
-set directory=~/.vim/tmp/swap//   " set directory for swap files
+set directory=~/.nvim/tmp/swap//   " set directory for swap files
 
 
 """ Behaviour """
@@ -627,7 +627,7 @@ iabbrev :check: ✓
 
 """ Autocommands """
 " When vimrc is edited, reload it
-autocmd! bufwritepost .nvimrc source ~/.vimrc
+autocmd! bufwritepost .nvimrc source ~/.nvimrc
 autocmd! bufwritepost .nvimrc :CSApprox
 
 " Instead of reverting the cursor to the last position in the buffer, we

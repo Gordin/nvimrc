@@ -1,5 +1,7 @@
 #!/bin/bash
-mkdir -p tmp/swap tmp/undo tmp/backup nvim.old
+
+# Create folders for temp files
+mkdir -p tmp/swap tmp/undo tmp/backup nvim.old tmp/info
 
 # If we are not in ~/.nvim, backup everything and symlink this folder to it
 if [ "$(pwd)" != "${HOME}/.nvim" ]
@@ -8,9 +10,6 @@ then
     ln -sf $(pwd) ~/.nvim
 fi
 ln -sf $(pwd)/nvimrc ~/.nvimrc
-
-# Create folder for viminfo file
-mkdir -p ~/.nvim/files/info
 
 # Get spellfiles
 mkdir -p ~/.nvim/spell
