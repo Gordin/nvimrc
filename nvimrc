@@ -12,7 +12,9 @@ Plug 'Konfekt/FastFold'
 Plug 'dahu/vim-help'
 
 " Show a list of last open files when no file is opened at start
+set viminfo='100,n$HOME/.nvim/files/info/viminfo
 Plug 'mhinz/vim-startify'
+
 " Ask if you wanted to open a different file when you open non-existant files
 Plug 'EinfachToll/DidYouMean'
 
@@ -27,6 +29,7 @@ Plug 'Lokaltog/vim-easymotion'
 " Plug 'YankRing.vim'
 Plug 'maxbrunsfeld/vim-yankstack'
 
+" Automaticcal create folders that don't exist
 Plug 'DataWraith/auto_mkdir'
 
 """ Fugitive """

@@ -1,11 +1,16 @@
 #!/bin/bash
 mkdir -p tmp/swap tmp/undo tmp/backup nvim.old
+
+# If we are not in ~/.nvim, backup everything and symlink this folder to it
 if [ "$(pwd)" != "${HOME}/.nvim" ]
 then
     for i in ~/.nvim*; do [ -e $i ] && mv $i ./nvim.old/; done
-    ln -sf $(pwd)/nvimrc ~/.nvimrc
     ln -sf $(pwd) ~/.nvim
 fi
+ln -sf $(pwd)/nvimrc ~/.nvimrc
+
+# Create folder for viminfo file
+mkdir -p ~/.nvim/files/info
 
 # Get spellfiles
 mkdir -p ~/.nvim/spell
