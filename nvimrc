@@ -389,13 +389,15 @@ Plug 'kien/ctrlp.vim'
 let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 Plug 'FelikZ/ctrlp-py-matcher'
 
+" Only use Rust plugins if Cargo is installed
+if executable("cargo")
+    Plug 'rust-lang/rust.vim'
+    Plug 'phildawes/racer', { 'do': 'cargo build --release' }
+    let g:racer_cmd = "~/.nvim/plugged/racer/target/release/racer"
+    let $RUST_SRC_PATH="/home/gordin/projects/rust/src"
 
-Plug 'rust-lang/rust.vim'
-Plug 'phildawes/racer', { 'do': 'cargo build --release' }
-let g:racer_cmd = "~/vim/plugged/racer/target/release/racer"
-let $RUST_SRC_PATH="/home/gordin/projects/rust/src"
-
-autocmd BufRead,BufNewFile Cargo.toml,Cargo.lock,*.rs compiler cargo
+    autocmd BufRead,BufNewFile Cargo.toml,Cargo.lock,*.rs compiler cargo
+endif
 
 
 
@@ -412,12 +414,18 @@ autocmd BufRead,BufNewFile Cargo.toml,Cargo.lock,*.rs compiler cargo
 """ Syntastic """
 Plug 'scrooloose/syntastic'
 
-Plug 'justmao945/vim-clang'
+" Can't use this without clang
+if executable("clang")
+    Plug 'justmao945/vim-clang'
+endif
 
 Plug 'suan/vim-instant-markdown'
 
 """ Tern for Vim """
-Plug 'marijnh/tern_for_vim', { 'do': 'npm install'}
+" Can
+if executable("npm")
+    Plug 'marijnh/tern_for_vim', { 'do': 'npm install'}
+endif
 
 """ Nim
 Plug 'zah/nim.vim'
