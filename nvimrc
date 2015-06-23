@@ -330,7 +330,7 @@ let g:ycm_filetype_specific_completion_to_disable = {
       \ 'gitcommit': 1,
       \ 'c': 1
       \}
-Plug 'Valloric/YouCompleteMe', { 'do': './install.sh --clang-completer --system-libclang' }
+Plug 'Valloric/YouCompleteMe', { 'do': 'if [[ -n $(ldconfig -p \| grep libclang.so) ]]; then; ./install.sh --clang-completer --system-libclang; else; ./install.sh; fi' }
 
 """ UltiSnips and Snippets """
 " UltiSnips
