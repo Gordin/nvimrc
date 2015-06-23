@@ -21,4 +21,4 @@ wget http://ftp.vim.org/pub/vim/runtime/spell/{de,en}.utf-8.{spl,sug}
 mkdir -p ~/.nvim/autoload
 
 wget -O ~/.nvim/autoload/plug.vim https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-nvim +PlugInstall +qall
+nvim +PlugInstall +e ~/.nvimrc +qall
