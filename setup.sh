@@ -1,8 +1,11 @@
 #!/bin/bash
-mkdir -p tmp/swap tmp/undo tmp/backup vim.old bundle
-for i in ~/.gvim* ~/.nvim*; do [ -e $i ] && mv $i ./nvim.old/; done
-ln -sf $(pwd)/nvimrc ~/.nvimrc
-ln -sf $(pwd) ~/.nvim
+mkdir -p tmp/swap tmp/undo tmp/backup nvim.old
+if [ "$(pwd)" != "${HOME}/.nvim" ]
+then
+    for i in ~/.nvim*; do [ -e $i ] && mv $i ./nvim.old/; done
+    ln -sf $(pwd)/nvimrc ~/.nvimrc
+    ln -sf $(pwd) ~/.nvim
+fi
 
 # Get spellfiles
 mkdir -p ~/.nvim/spell
