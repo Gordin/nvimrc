@@ -397,7 +397,7 @@ if executable("cargo")
     Plug 'rust-lang/rust.vim'
     Plug 'phildawes/racer', { 'do': 'cargo build --release' }
     let g:racer_cmd = "~/.nvim/plugged/racer/target/release/racer"
-    let $RUST_SRC_PATH="/home/gordin/projects/rust/src"
+    let $RUST_SRC_PATH="/home/gordin/projects/rustc-1.1.0/src/"
 
     autocmd BufRead,BufNewFile Cargo.toml,Cargo.lock,*.rs compiler cargo
 endif
@@ -499,9 +499,10 @@ set foldmethod=indent           " Fold automatically based on indentation level
 nnoremap zO zczO
 
 """ Looks """
-" set background=dark             " Tell vim that our background is dark
+set background=dark             " Tell vim that our background is dark
 try
     colorscheme gotham256             " Select cholorscheme
+    " colorscheme PaperColor
 catch /^Vim\%((\a\+)\)\=:E185/
     " deal with it
 endtry
